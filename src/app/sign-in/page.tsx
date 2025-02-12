@@ -96,7 +96,7 @@ const SignUp = () => {
 					<div className="flex my-2 pt-2 justify-evenly mx-auto items-center">
 						<Button
 							disabled={false}
-							onClick={()=>{}}
+							onClick={(e)=>handleProvider(e, "google")}
 							variant="outline"
 							size="lg"
 							className="bg-slate-300 hover:bg-slate-400 hover:scale-100"

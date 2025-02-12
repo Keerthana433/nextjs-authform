@@ -3,13 +3,18 @@ import User from "@/models/user";
 import connectToDatabase from "@/lib/mongodb";
 import bcrypt from 'bcryptjs';
 import CredentialsProvider from "next-auth/providers/credentials";
-import Github from "next-auth/providers/github"
+import Github from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
 
 const handler = NextAuth({
     session: {
         strategy: 'jwt',
     },
     providers: [
+        GoogleProvider({
+            clientId: process.env.GOOGLE_ID as string,
+            clientSecret: process.env.GOOGLE_SECRET as string,
+          }),
         Github({
             clientId: process.env.GITHUB_ID as string,
             clientSecret: process.env.GITHUB_SECRET as string
